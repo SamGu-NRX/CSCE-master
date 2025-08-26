@@ -1,0 +1,6 @@
+[submodule "sim-city"]
+	path = sim-city
+	url = git@github.com:SamGu-NRX/sim-city.git
+[submodule "labs"]
+	path = labs
+	url = git@github.com:SamGu-NRX/labs.git

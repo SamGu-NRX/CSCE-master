@@ -1,5 +1,20 @@
 *
+
+# Essential Files
 !.gitignore
 !README.md
 !.gitmodules
 
+!scripts/**
+!scripts/
+
+submodules.txt
+!.env*.example
+
+# github workflows
+!.github/
+!.github/**
+
+# submodules
+!sim-city/
+!labs/

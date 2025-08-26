@@ -1,0 +1,46 @@
+# File: .github/workflows/update-submodules.yml
+name: Update Submodules
+
+on:
+  repository_dispatch:
+    types: [submodule-updated]
+
+  workflow_dispatch:
+
+  schedule:
+    - cron: "0 */6 * * *"
+
+jobs:
+  update-submodules:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout master repository and submodules
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.SUBMODULE_PAT }} # CRITICAL: This token is used to authenticate when cloning/updating *all* repos, including the master and submodules. It MUST be a PAT with 'repo' scope, having access to the master repo and all private submodules.
+          submodules: recursive
+
+      - name: Configure Git for commits
+        run: |
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git config --global user.name "github-actions[bot]"
+
+      - name: Get latest submodule changes
+        run: |
+          # The --remote flag updates each submodule to the latest commit on its tracking branch.
+          # --init initializes new submodules, --recursive handles nested submodules.
+          # Credentials for private submodules are handled by the 'submodules-token' from checkout.
+          git submodule update --init --recursive --remote
+
+      - name: Check for changes and commit
+        id: check_changes
+        run: |
+          if ! git diff --quiet HEAD; then
+            echo "Detected changes in submodule references."
+            git add . # Add all changed gitlink files and .gitmodules
+            git commit -m "Auto: Update submodules to latest versions [skip ci]"
+            git push origin main # Uses the default GITHUB_TOKEN, which has write access to *this* master repo
+            echo "Changes committed and pushed."
+          else
+            echo "No submodule updates needed for master repository."
+          fi
