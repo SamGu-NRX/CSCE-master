@@ -4,7 +4,7 @@ name: Notify Master Repo on Push
 on:
   push:
     branches:
-      - main # Or your default branch for this submodule
+      - main
 
 jobs:
   notify:
@@ -13,7 +13,7 @@ jobs:
       - name: Send repository dispatch to master
         uses: peter-evans/repository-dispatch@v2
         with:
-          token: ${{ secrets.MASTER_REPO_TOKEN }} # This secret needs to be set in *this* submodule repo
-          repository: SamGu-NRX/CSCE2110-Projects # Replace with your master repo's owner/name
+          token: ${{ secrets.MASTER_REPO_TOKEN }}
+          repository: SamGu-NRX/CSCE-master
           event-type: submodule-updated
           client-payload: '{"submodule_name": "${{ github.event.repository.name }}", "ref": "${{ github.ref }}"}'
