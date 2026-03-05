@@ -1,0 +1,132 @@
+EXAM IS OPEN BOOK, OPEN NOTE
+
+REVIEW NOTES ON CANVAS
+
+Topics
+- Abstraction
+	- Data Model
+	- Data Structure
+	- Abstract Data Type (ADT)
+	- Design Algebra
+		- Algebra -- operations done on a set of values that yield a value from the same set
+			- Therefore, algebra can be done on logical values, relational mappings, etc.
+		- Boolean algebra
+			- AND, OR, XOR, NOT
+		- Propositional logic
+			- AND, OR, NOT, Implication, IFF
+		- Regular expressions
+			- Union, Kleene closure
+		- Set algebra
+			- **_Listed Later_**
+- Sets
+	- Collection of objects
+		- Sets can contain, numbers, tuples, or even other sets
+		- Sets can contains a mixed type of elements
+	- Can do algebra on sets
+	- Cardinality
+		- Size of Set
+		- Cardinality of Set A is represented by |A|
+		- Sets may have a cardinality of infinity
+	- Countability
+		- A set can be ...
+			- Countably finite
+				- Finite cardinality
+					- Set of digits
+			- Countable infinite
+				- Infinite cardinality, bijective with N
+					- N, Z, Set of Primes, Q (!)
+			- Uncountably infinite
+				- Infinite cardinality, not bijective with N
+					- R, C
+	- Set Operations
+		- Union
+		- Intersection
+		- Difference (-)
+		- Symmetrical Difference
+		- Complement
+		- Examples
+			- A = {x | x >= 0 && x < 10}
+			- B = {1, 2, 3, 4, 5}
+			- C = {2, 4, 6, 8, 10)
+			- B union C = {1, 2, 3, 4, 5, 6, 8}
+			- A - B = {0, 6, 7, 8, 9}
+			- A intersection C = {2, 4, 6, 8}
+			- B symmetrical difference C = {1, 3, 5, 8, 10}
+			- C symmetrical difference B = {1, 3, 5, 8, 10}
+			- If A is universal set, complement of A is null set = {}
+			- If A is universal set, complement of B = {0, 6, 7, 8, 9}
+	- Power Sets
+		- Let P(S) yield the power set of S
+			- Then  |P(S)| = 2 ^ |S|
+		- Let A be {0, 1, 2}
+			- Then P(A) = {{}, {0}, {1}, {2}, {0, 1}, {0, 2}, {1, 2}, {0, 1, 2}}
+	- Subset / Superset
+		- A set S1 is a subset of S2 if all elements of S1 are contained in S2
+			- A set S1 is a proper subset of S2 if S1 is a subset of S2 and S1 != S2
+		- A set S1 is a superset of S2 if all elements of S2 are contained in S1
+			- A set S1 is a proper superset of S2 if S1 is a superset of S2 and S1 != S2
+		- If A is a (proper) subset of B, then B is a (proper) superset of A
+		- The null set ( {} ) is a subset of all sets and is a proper superset of no sets
+	- Set Partitions
+		- A set partition of S is a set of subsets of S such that the the elements of the subset have the following properties:
+			- All subsets in the set of subsets has a cardinality of at least 1
+			- The union is taken of all elements of the set of subsets yields S
+			- The intersection of any two sets in the set of subsets yields the empty set
+		- Example:
+			- Let A = {1, 2, 3, 4}
+			- {{1}, {2, 3}, {4}} is a set partition
+			- {{1, 3}, {2, 4}} is a set partition
+			- {{1, 2, 4}, {3}} is a set partition
+	- Notations
+		- Roster
+			- A = {1, 2, 3, 4, 5, 6, 7, 8}
+			- B = {4, 5, 6, 7}
+			- C = {3, 5, 7, 9}
+			- Elements are explicitly stated
+			- Inadequate for sets with infinite cardinality
+		- Set Builder
+			- A = {x | x in Z && x > 0 && x <= 8}
+			- B = {x | x in Z && x >= 4 && x < 8}
+			- C = {x | x > 2 && x < 10 && x % 2 = 1}
+			- Elements must satisfy some constraints to be part of the set
+			- Used for sets with infinite cardinality
+- Relations
+	- Definition:
+		- A set of tuples with the same arity
+			- Tuples are represented by values enclosed in ()
+				- Order matters
+	- Cartesian Product
+		- Let S1 = {a1, a2, a3}, S2 = {x1, x2}
+		- Then the Cartesian Product of the two sets is {(a1, x1), (a1, x2), (a2, x1), (a2, x2), (a3, x1), (a3, x2)}
+	- Domain / Range
+		- Current Domain / Range: The set of domains / ranges present in the relation
+		- Declared Domain / Range: The set of domains / ranges declared in the relation
+		- Range is AKA co-domain
+	- Representation
+		- Matrix
+		- Arrow Diagram
+		- List
+	- Composition of functions
+		- 
+	- REVIEW PROPERTIES
+- Graphs
+	- **_n_**-Barbell graph
+			- clique --edge-- clique
+			- clique: complete graph
+			- number of edges = n * (n-1) / 2
+				- Number of edges in 3,3-Barbell graph is 3 * (3-1) / 2 + 3 * (3-1) / 2 + 1 = 7
+	- Algorithms
+		- Euler's Identity
+			- \# of vertices - \# of edges + \# of faces = 2
+	- Partial / Total
+		- Partial Graph - not all elements in domain are mapped to an element in the co-domain
+		- Total Graph - all elements in domain are mapped to n element in the co-domain
+			- Total graph can be partial if the co-domain is restricted
+	- Connectivity
+		- If all nodes are connected by at least 1 edge, the graph is connected
+	- Searching
+		- Depth First Search (DFS)
+		- Breadth First Search (BFS)
+
+
+

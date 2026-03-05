@@ -1,0 +1,41 @@
+name: Update Submodules
+
+on:
+  repository_dispatch:
+    types: [submodule-updated]
+
+  workflow_dispatch:
+
+  schedule:
+    - cron: "0 */6 * * *"
+
+jobs:
+  update-submodules:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout master repository and submodules
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.SUBMODULE_PAT }}
+          submodules: recursive
+
+      - name: Configure Git for commits
+        run: |
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git config --global user.name "github-actions[bot]"
+
+      - name: Get latest submodule changes
+        run: |
+          git submodule update --init --recursive --remote
+
+      - name: Check for changes and commit
+        run: |
+          if ! git diff --quiet HEAD; then
+            echo "Detected changes in submodule references."
+            git add .
+            git commit -m "Auto: Update submodules to latest versions [skip ci]"
+            git push origin main
+            echo "Changes committed and pushed."
+          else
+            echo "No submodule updates needed for master repository."
+          fi
