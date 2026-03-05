@@ -18,3 +18,7 @@ submodules.txt
 # submodules
 !sim-city/
 !labs/
+!assignments/
+!assignments/**
+!exams/
+!exams/**
