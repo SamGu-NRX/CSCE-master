@@ -100,35 +100,30 @@ git push -u origin main
 
 ---
 
-## 4. CSCE-master (not done)
+## 4. CSCE-master (done)
 
-**Status:** CSCE folder is not a git repo yet. Init and add submodules when 2110, 1040, 3444 are ready.
+**Status:** Initialized. One commit. Remote: CSCE-master.
 
-**Planned structure:**
+**Structure:** 1040/, 2100/, 2110/, 3444/UNTangle (submodules); scripts/; .github/workflows/
 
-- 1040/ (submodule)
-- 2100/ (tracked files or project submodules)
-- 2110/ (submodule)
-- 3444/UNTangle (submodule → UNTangle)
+**To push:** Create `SamGu-NRX/UNTangle` on GitHub first if needed. Then `git push -u origin main`
 
 ---
 
-## 5. Not done
+## 5. Optional
 
-- 1040 restructure (labs/, assignments/)
-- CSCE-master init and workflows
-- Repo renames (labs → 2110-labs, sim-city → 2110-sim-city) — optional, see MIGRATION_GUIDE
+- Repo renames (labs → 2110-labs, sim-city → 2110-sim-city) — see MIGRATION_GUIDE
 
 ---
 
 ## Quick status
 
-| Repo     | Status           | Push?                      |
-| -------- | ---------------- | -------------------------- |
-| 2110     | Local changes    | After sim-city             |
-| sim-city | Local changes    | First                      |
-| UNTangle | 1 commit + local | After creating GitHub repo |
-| CSCE     | Not a repo       | —                          |
+| Repo        | Status           | Push?                     |
+| ----------- | ---------------- | ------------------------- |
+| CSCE-master | 1 commit         | Yes (after UNTangle repo) |
+| 2110        | Local changes    | After sim-city            |
+| sim-city    | Local changes    | First                     |
+| UNTangle    | 1 commit + local | Create GitHub repo first  |
 
 ---
 
