@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 # File: .github/workflows/update-submodules.yml
+=======
+>>>>>>> 45fc47a (Initial commit: CSCE master with 1040, 2110, 3444/UNTangle submodules, 2100 content, shared scripts)
 name: Update Submodules
 
 on:
@@ -17,7 +20,11 @@ jobs:
       - name: Checkout master repository and submodules
         uses: actions/checkout@v4
         with:
+<<<<<<< HEAD
           token: ${{ secrets.SUBMODULE_PAT }} # CRITICAL: This token is used to authenticate when cloning/updating *all* repos, including the master and submodules. It MUST be a PAT with 'repo' scope, having access to the master repo and all private submodules.
+=======
+          token: ${{ secrets.SUBMODULE_PAT }}
+>>>>>>> 45fc47a (Initial commit: CSCE master with 1040, 2110, 3444/UNTangle submodules, 2100 content, shared scripts)
           submodules: recursive
 
       - name: Configure Git for commits
@@ -27,6 +34,7 @@ jobs:
 
       - name: Get latest submodule changes
         run: |
+<<<<<<< HEAD
           # The --remote flag updates each submodule to the latest commit on its tracking branch.
           # --init initializes new submodules, --recursive handles nested submodules.
           # Credentials for private submodules are handled by the 'submodules-token' from checkout.
@@ -40,6 +48,17 @@ jobs:
             git add . # Add all changed gitlink files and .gitmodules
             git commit -m "Auto: Update submodules to latest versions [skip ci]"
             git push origin main # Uses the default GITHUB_TOKEN, which has write access to *this* master repo
+=======
+          git submodule update --init --recursive --remote
+
+      - name: Check for changes and commit
+        run: |
+          if ! git diff --quiet HEAD; then
+            echo "Detected changes in submodule references."
+            git add .
+            git commit -m "Auto: Update submodules to latest versions [skip ci]"
+            git push origin main
+>>>>>>> 45fc47a (Initial commit: CSCE master with 1040, 2110, 3444/UNTangle submodules, 2100 content, shared scripts)
             echo "Changes committed and pushed."
           else
             echo "No submodule updates needed for master repository."

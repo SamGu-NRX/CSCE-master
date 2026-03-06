@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 *
 
 # Essential Files
@@ -22,3 +23,8 @@ submodules.txt
 !assignments/**
 !exams/
 !exams/**
+=======
+third_party/
+.DS_Store
+CSCE_backup/
+>>>>>>> 45fc47a (Initial commit: CSCE master with 1040, 2110, 3444/UNTangle submodules, 2100 content, shared scripts)
