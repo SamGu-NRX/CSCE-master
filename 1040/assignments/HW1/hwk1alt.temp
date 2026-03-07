@@ -1,0 +1,108 @@
+// DOCUMENTATION GOES HERE
+// Sam Gu CSCE 1040.001
+
+#include <stdio.h>
+#include <stdlib.h>
+#include "student.h"
+#include "bubble.h"
+#include <iostream>
+
+#include <string>
+
+using namespace std;
+
+/* 
+  1. void bubble(student *array[], int size)
+  2. typedef struct student_info {
+        char  *first;
+        char  *last;
+        int   exam1;
+        int   exam2;
+        int   exam3;
+        int   exam4;
+        float mean;
+    } student;
+*/
+
+int calc_mean(student array[], int size) {
+  for (int i = 0; i < size; i++) {
+    array[i].mean = 
+      (array[i].exam1 + array[i].exam2 + array[i].exam3 + array[i].exam4) / 4;
+  }
+
+  return 0;
+}
+
+struct classStats {
+    float mean;
+    float min;
+    float max;
+    float median;
+    char *name;
+};
+
+int main() {
+    struct classStats stats;
+    student *students[19]; // Array of 19 pointers to student structures
+    char courseName[50];
+    FILE *inputFile = fopen("grades", "r"); // Open the input file named 'grades'
+
+    if (inputFile == NULL) {
+        printf("Error opening file!\n");
+        return 1;
+    }
+
+    // Read the course name
+    fscanf(inputFile, "%s", courseName);
+    stats.name = courseName;
+
+    // Allocate memory for each student and read their data
+    for (int i = 0; i < 19; i++) {
+        students[i] = (student *)malloc(sizeof(student));
+        fscanf(inputFile, "%s %s %d %d %d %d",
+              students[i] -> first,
+              students[i] -> last,
+              &students[i] -> exam1,
+              &students[i] -> exam2,
+              &students[i] -> exam3,
+              &students[i] -> exam4);
+
+        if (!students[i]) {
+          printf("Error allocating memory\n");
+          return 1;
+        }
+        // Calculate the mean of the student's exams
+        students[i] -> mean = (students[i] -> exam1 + students[i] -> exam2 + students[i] -> exam3 + students[i] -> exam4) / 4.0;
+    }
+
+    fclose(inputFile); // Close the input file
+
+    // Sort the students by their mean score using the provided bubble sort function
+    bubble(students, 19);
+
+    // Calculate class statistics
+    stats.mean = 0;
+    stats.min = students[0]->mean;
+    stats.max = students[18]->mean;
+
+    for (int i = 0; i < 19; i++) {
+        stats.mean += students[i]->mean;
+    }
+    stats.mean /= 19;
+    stats.median = (students[9]->mean + students[10]->mean) / 2.0;
+
+    // Print the class statistics
+    printf("%s MEAN: %.2f MIN: %.2f MAX: %.2f MEDIAN: %.2f\n", stats.name, stats.mean, stats.min, stats.max, stats.median);
+
+    // Print each student's average
+    for (int i = 0; i < 19; i++) {
+        printf("%-15s %-15s %.2f\n", students[i]->first, students[i]->last, students[i]->mean);
+    }
+
+    // Free allocated memory for each student
+    for (int i = 0; i < 19; i++) {
+        free(students[i]);
+    }
+
+    return 0;
+}

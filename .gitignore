@@ -1,3 +1,4 @@
 third_party/
+googletest-v1.17.0/
 .DS_Store
 CSCE_backup/

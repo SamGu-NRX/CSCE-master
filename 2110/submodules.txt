@@ -1,0 +1,2 @@
+git@github.com:SamGu-NRX/sim-city.git
+git@github.com:SamGu-NRX/labs.git

@@ -1,0 +1,12 @@
+Amarillo 1 Lubbock
+Lubbock 1 CollegeStation
+CollegeStation 1 Houston
+Houston 2 DFW Austin
+DFW 2 SanAntonio ElPaso
+SanAntonio 1 CorpusChristi
+CorpusChristi 1 Austin
+Austin 1 BatonRouge
+BatonRouge 1 NewOrleans
+NewOrleans 1 Tucson
+Tucson 0
+ElPaso 0

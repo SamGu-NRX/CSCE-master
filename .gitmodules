@@ -1,9 +1,12 @@
-[submodule "1040"]
-	path = 1040
-	url = https://github.com/SamGu-NRX/CSCE_1040.git
-[submodule "2110"]
-	path = 2110
-	url = https://github.com/SamGu-NRX/CSCE-2110-master.git
 [submodule "3444/UNTangle"]
 	path = 3444/UNTangle
 	url = https://github.com/SamGu-NRX/UNTangle.git
+[submodule "1040/labs"]
+	path = 1040/labs
+	url = https://github.com/SamGu-NRX/CSCE-labs.git
+[submodule "2110/sim-city"]
+	path = 2110/sim-city
+	url = git@github.com:SamGu-NRX/sim-city.git
+[submodule "2110/labs"]
+	path = 2110/labs
+	url = https://github.com/SamGu-NRX/CSCE-labs.git

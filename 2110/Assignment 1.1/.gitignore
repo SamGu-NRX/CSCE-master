@@ -1,0 +1,44 @@
+# Compiled Object files
+*.o
+*.obj
+
+# Static libraries
+*.a
+libgtest.a
+
+# Executables
+library_system
+library_management
+run_tests
+*.exe
+*.out
+*.app
+
+# Test artifacts
+real_books_inventory.txt
+test_output/
+
+kg0909
+
+# Build directories
+build/
+cmake-build-*/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile.cmake
+Testing/
+
+# IDE/Editor specific files
+.cursorindexingignore
+.specstory/
+.DS_Store
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# GoogleTest
+googletest-v1.17.0/build/
+
